@@ -43,7 +43,7 @@ jobs:
       run: curl -o wizcli https://wizcli.app.wiz.io/wizcli && chmod +x wizcli
 
     - name: Authenticate to Wiz
-      run: set WIZ_ENV=csaprod ./wizcli auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
+      run: WIZ_ENV ./wizcli auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
 
     - name: Run wiz-cli IaC scan
       run: |
