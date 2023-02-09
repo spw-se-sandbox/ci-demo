@@ -16,7 +16,7 @@ jobs:
       IMAGE: setestimage
       TAG: latest
       IAC_POLICY: "iac-fail-medium" # Set the desired Wiz-cli policy to use
-      VULN_POLICIES: "vuln-one-medium"
+      VULN_POLICIES: "Carson-vulnerability"
       WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID }}
       WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET }}
 
