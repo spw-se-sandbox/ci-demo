@@ -15,8 +15,8 @@ jobs:
       SCAN_PATH_FAIL: "container-fail"
       IMAGE: setestimage
       TAG: latest
-      IAC_POLICY: "iac-fail-medium" # Set the desired Wiz-cli policy to use
-      VULN_POLICIES: "vuln-one-medium"
+      IAC_POLICY: "Carson-IAC" # Set the desired Wiz-cli policy to use
+      VULN_POLICIES: "Carson-vulnerability"
       WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID }}
       WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET }}
       
@@ -71,7 +71,7 @@ jobs:
       # Set the relative path in the repo to scan
       SCAN_PATH_PASS: "aws/terraform-eks-pass"
       SCAN_PATH_FAIL: "aws/terraform-eks-fail"
-      IAC_POLICY: "iac-fail-medium" # Set the desired Wiz-cli policy to use
+      IAC_POLICY: "Carson-IAC" # Set the desired Wiz-cli policy to use
       WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID }}
       WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET }}
 
