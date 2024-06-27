@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Set the relative path in the repo to scan
-      SCAN_PATH_PASS: "ci-test"
-      SCAN_PATH_FAIL: "ci-test"
+      SCAN_PATH_PASS: "container-pass"
+      SCAN_PATH_FAIL: "container-fail"
       IMAGE: setestimage
       TAG: latest
       IAC_POLICY: "Carson-IAC" # Set the desired Wiz-cli policy to use
