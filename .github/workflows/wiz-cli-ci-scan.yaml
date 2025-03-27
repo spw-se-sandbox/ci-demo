@@ -15,11 +15,10 @@ jobs:
       SCAN_PATH_FAIL: "container-fail"
       IMAGE: setestimage
       TAG: latest
-      IAC_POLICY: "iac-fail-medium" # Set the desired Wiz-cli policy to use
-      VULN_POLICIES: "vuln-one-medium"
+      IAC_POLICY: "Carson-IAC" # Set the desired Wiz-cli policy to use
+      VULN_POLICIES: "Carson-vulnerability"
       WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID }}
       WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET }}
-      WIZ_ENV: ${{ secrets.WIZ_ENV }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -48,7 +47,6 @@ jobs:
     - name: Run wiz-cli IaC scan
       run: |
         ./wizcli iac scan --path ${{ env.SCAN_PATH }} --policy "$IAC_POLICY"
-
     - name: Build the Docker image
       run: |
         docker build ${{ env.SCAN_PATH }} -t $IMAGE:$TAG
@@ -62,7 +60,6 @@ jobs:
     - name: Push docker image
       run: |
         echo "Pushing image here"
-
   wiz-cli-iac-scan:
     if: contains(github.event.pull_request.head.ref, 'iac')
     name: 'Wiz-cli IaC Scan'
@@ -71,10 +68,9 @@ jobs:
       # Set the relative path in the repo to scan
       SCAN_PATH_PASS: "aws/terraform-eks-pass"
       SCAN_PATH_FAIL: "aws/terraform-eks-fail"
-      IAC_POLICY: "iac-fail-medium" # Set the desired Wiz-cli policy to use
+      IAC_POLICY: "Carson-IAC" # Set the desired Wiz-cli policy to use
       WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID }}
       WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET }}
-      WIZ_ENV: ${{ secrets.WIZ_ENV }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
